@@ -1,0 +1,7 @@
+#!/usr/bin/bpftrace
+
+iter:task_file
+{
+    $pid = ctx->task->pid;
+    @[$pid] = count();
+}
